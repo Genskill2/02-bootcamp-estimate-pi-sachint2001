@@ -1,6 +1,32 @@
 import math
 import unittest
 
+# start of my code
+
+def wallis(n):
+    half_pi = (4/3)
+
+    if n==1:
+        return half_pi
+    
+    for i in range(2,n+1):
+        half_pi = half_pi * (4*(i**2)/(4*(i**2) - 1))
+    
+    return (half_pi*2)
+
+
+def monte_carlo(n):
+    circle_darts=0 # number of darts in circle
+
+    for i in range(n):
+        if (random.random()**2 + random.random()**2)<1:
+            circle_darts+=1
+    return (4*circle_darts/n)
+
+# end of my code
+
+
+
 class TestWallis(unittest.TestCase):
     def test_low_iters(self):
         for i in range(0, 5):
